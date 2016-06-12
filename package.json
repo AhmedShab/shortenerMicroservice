@@ -2,6 +2,7 @@
   "name": "shortenerMicroservice",
   "version": "0.0.0",
   "private": true,
+  "main": "./bin/www",
   "scripts": {
     "start": "./node_modules/.bin/babel-node  ./bin/www"
   },
