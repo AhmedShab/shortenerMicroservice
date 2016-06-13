@@ -46,7 +46,7 @@ module.exports = {
   */
   create: function(req, res) {
     var original_url = req.originalUrl.slice(11)
-    var short_url = req.protocol + '://' + req.get('host') + '/' + Math.floor(Math.random()*10001);
+    var short_url = Math.floor(Math.random()*10001);
 
     console.log('-------------------------------------- ');
 
@@ -73,7 +73,7 @@ module.exports = {
 
       return res.json({
         original_url: original_url,
-        short_url: short_url
+        short_url: req.protocol + '://' + req.get('host') + '/' + short_url
       });
 
     });
