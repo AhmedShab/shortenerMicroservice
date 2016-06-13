@@ -46,10 +46,10 @@ module.exports = {
   */
   create: function(req, res) {
     var original_url = "https://"+req.params.url;
-    var short_url = req.params.url;
-    var displayShort = Math.floor(Math.random()*10001);
+    var short_url = Math.floor(Math.random()*10001);
 
-    // console.log('--------------------------------------');
+    console.log('-------------------------------------- ');
+    console.log(req);
 
     siteModel.findOne({original_url: original_url}, function (err, site) {
       if(err) {
@@ -76,7 +76,7 @@ module.exports = {
           else {
             return res.json({
               original_url: original_url,
-              short_url: displayShort
+              short_url: short_url
             });
           }
         });
@@ -85,7 +85,7 @@ module.exports = {
       else {
         return res.json({
           original_url: original_url,
-          short_url: displayShort
+          short_url: short_url
         });
       }
 
