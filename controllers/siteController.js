@@ -45,11 +45,11 @@ module.exports = {
   * siteController.create()
   */
   create: function(req, res) {
-    let original_url = `https://${req.params.url}`;
-    let short_url = req.params.url;
-    let displayShort = `${Math.floor(Math.random()*10001)}`;
+    var original_url = "https://"+req.params.url;
+    var short_url = req.params.url;
+    var displayShort = Math.floor(Math.random()*10001);
 
-    console.log(`--------------------------------------`);
+    // console.log('--------------------------------------');
 
     siteModel.findOne({original_url: original_url}, function (err, site) {
       if(err) {
@@ -60,7 +60,7 @@ module.exports = {
       }
       if(!site) {
 
-        let newSite = new siteModel({
+        var newSite = new siteModel({
           original_url : original_url,
           short_url : short_url
         });
