@@ -58,36 +58,24 @@ module.exports = {
           error: err
         });
       }
-      if(!site) {
 
-        var newSite = new siteModel({
-          original_url : original_url,
-          short_url : short_url
-        });
+      var newSite = new siteModel({
+        original_url : original_url,
+        short_url : short_url
+      });
 
-        newSite.save(function(err, newSite){
-          if(err) {
-            return res.json(500, {
-              message: 'Error saving newSite',
-              error: err
-            });
-          }
+      newSite.save(function (errr, result) {
+        if (err){
+          return res.json({
+            message: "couldn't save to the database"
+          });
+        }
+      });
 
-          else {
-            return res.json({
-              original_url: original_url,
-              short_url: short_url
-            });
-          }
-        });
-      }
-
-      else {
-        return res.json({
-          original_url: original_url,
-          short_url: short_url
-        });
-      }
+      return res.json({
+        original_url: original_url,
+        short_url: short_url
+      });
 
     });
   },
