@@ -49,7 +49,7 @@ module.exports = {
     var short_url = Math.floor(Math.random()*10001);
 
     console.log('-------------------------------------- ');
-    console.log(req);
+    console.log(process.env.APP_URL);
 
     siteModel.findOne({original_url: original_url}, function (err, site) {
       if(err) {
