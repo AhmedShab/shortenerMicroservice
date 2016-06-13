@@ -21,9 +21,4 @@ router.get('/:short_url', function(req, res, next) {
 
 });
 
-router.get('https://shortener-microservice.herokuapp.com/:short_url', function(req, res, next){
-  res.redirect('/'+req.params.short_url);
-
-});
-
 module.exports = router;
